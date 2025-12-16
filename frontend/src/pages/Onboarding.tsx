@@ -121,7 +121,7 @@ const Onboarding: React.FC = () => {
                 type="number"
                 id="experience"
                 value={experience}
-                onChange={(e) => setExperience(parseInt(e.target.value) || 0)}
+                onChange={(e) => setExperience(parseInt(e.target.value, 10) || 0)}
                 min="0"
                 max="50"
               />

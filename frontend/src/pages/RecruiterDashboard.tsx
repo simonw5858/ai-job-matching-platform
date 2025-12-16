@@ -180,7 +180,7 @@ const RecruiterDashboard: React.FC = () => {
                   type="number"
                   id="experienceRequired"
                   value={formData.experienceRequired}
-                  onChange={(e) => setFormData({ ...formData, experienceRequired: parseInt(e.target.value) })}
+                  onChange={(e) => setFormData({ ...formData, experienceRequired: parseInt(e.target.value, 10) || 0 })}
                   min="0"
                 />
               </div>
@@ -204,7 +204,7 @@ const RecruiterDashboard: React.FC = () => {
                   type="number"
                   id="salaryMin"
                   value={formData.salaryMin}
-                  onChange={(e) => setFormData({ ...formData, salaryMin: parseInt(e.target.value) })}
+                  onChange={(e) => setFormData({ ...formData, salaryMin: parseInt(e.target.value, 10) || 0 })}
                   required
                 />
               </div>
@@ -215,7 +215,7 @@ const RecruiterDashboard: React.FC = () => {
                   type="number"
                   id="salaryMax"
                   value={formData.salaryMax}
-                  onChange={(e) => setFormData({ ...formData, salaryMax: parseInt(e.target.value) })}
+                  onChange={(e) => setFormData({ ...formData, salaryMax: parseInt(e.target.value, 10) || 0 })}
                   required
                 />
               </div>

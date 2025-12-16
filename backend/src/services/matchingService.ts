@@ -108,8 +108,10 @@ export class MatchingService {
         explanation = `You're highly experienced with ${userExperience} years (${excess} years above requirement).`;
       }
     } else {
-      // User has less experience
+      // User has less experience than required
       const gap = requiredExperience - userExperience;
+      // Score decreases by 50% of the gap ratio (max penalty of 50%)
+      // This allows candidates with slightly less experience to still be considered
       score = Math.max(0, 100 - (gap / requiredExperience) * 50);
       
       if (gap <= 1) {

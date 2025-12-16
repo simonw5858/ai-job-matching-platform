@@ -3,7 +3,13 @@ import bcrypt from 'bcryptjs';
 import { User, UserProfile, AuthResponse, LoginRequest, RegisterRequest } from '../types';
 import { db } from '../models/database';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
+// In production, JWT_SECRET must be set via environment variable
+const JWT_SECRET = process.env.JWT_SECRET || (() => {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('JWT_SECRET environment variable must be set in production');
+  }
+  return 'your-secret-key-change-in-production';
+})();
 const JWT_EXPIRES_IN = '7d';
 
 export class AuthService {

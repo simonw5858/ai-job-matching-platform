@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
@@ -54,7 +54,6 @@ function App() {
 
 // Helper component to route to correct dashboard based on user role
 const DashboardRouter: React.FC = () => {
-  const { useAuth } = require('./context/AuthContext');
   const { user } = useAuth();
   
   if (user?.role === 'recruiter') {

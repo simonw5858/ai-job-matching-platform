@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../context/AuthContext';
 import { jobAPI } from '../services/api';
 import { Job } from '../types';
 
 const RecruiterDashboard: React.FC = () => {
-  const { user } = useAuth();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
